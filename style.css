@@ -1,0 +1,445 @@
+* {    box-sizing: border-box;
+    font-family: "Gochi Hand";
+}
+
+@keyframes glowing {
+    0% {text-shadow: 0 0 20px lawngreen;}
+    50% {text-shadow: 0 0 20px green;}
+    100% {text-shadow: 0 0 20px yellow;}
+}
+/*@keyframes glowing2 {*/
+    /*0% {text-shadow: 0 0 20px yellow;}*/
+    /*50% {text-shadow: 0 0 20px orange;}*/
+    /*100% {text-shadow: 0 0 20px red;}*/
+/*}*/
+.animate {
+    animation: glowing 1000ms infinite;
+}
+
+.winning-cell {
+    background-color: red;
+}
+
+.ex.shakes,
+.ow.shakes{
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(4px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-8px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(8px, 0, 0);
+    }
+}
+
+/****************************my part***************************************/
+body {
+    font-size: 1.5vh;
+}
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: url("images/background/auto_shop_background.jpg") no-repeat;
+    background-size:cover;
+    padding: 5%;
+    position: relative;
+}
+h3.game_title {
+text-align: center;
+color: #D63019;
+font-size: 200%;
+margin: 0 auto;
+    text-shadow: 2px 2px 3px black;
+}
+/*change font size and padding*/
+h3.game_title span {
+    color: #B88E44;
+}
+
+
+.game_board {
+    position: absolute;
+    bottom:0;
+    left:50%;
+    width: 80vh;
+    height: 80vh;
+    margin: 0 auto;
+    font-size: 0;
+    transform: translateX(-50%);
+}
+.player_names {
+    color: white;
+    font-size: 1em;
+    position: absolute;
+    top: 10vh;
+    width: 80vh;
+    height: 13%;
+    left: 50%;
+    text-shadow: 3px 3px 3px black;
+    transform: translateX(-50%);
+}
+#logo {
+    position: absolute;
+    top:3vh;
+    left: 3vw;
+    color: #fff;
+    width:7vh;
+    height:7vh;
+    background-color: inherit;
+    background: url("images/mp.gif")no-repeat;
+    background-size: contain;
+    border: 2px solid #006633;
+    transition-duration: 1s;
+    transform: scale(1);
+    border-radius: 50%;
+}
+#logo:hover {
+    transform: scale(1.1);
+}
+#logo:focus, .button-group button:focus {
+    outline: none;
+}
+
+.modal-dialog {
+    width: 80vh;
+    height: 80vh;
+    border-radius: 50%;
+    box-shadow: 5px 5px 25px black;
+}
+.modal-body h4, .modal-body h1{
+    font-family: Open Sans !important;
+}
+.modal-top-spacer {
+    line-height: 15vh;
+}
+.modal-title,
+.modal label,
+.modal h4,
+.modal input,
+.form-control,
+.modal select option
+{
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5em;
+    position: relative;
+    top: -2vh;
+    color: #ffff66;
+    text-shadow: 2px 2px 5px black;
+}
+
+select option,
+select.number_of_rows.form-control,
+select.number_of_matches.form-control,
+select.theme_picker_select.form-control,
+div.theme_picking > select > option,
+div.matches-number.form-group > select > option,
+input#player1.form-control,
+input#player2.form-control,
+div > div:nth-child(5) > select > option
+{
+    color: black;
+    text-shadow: 2px 2px 5px white;
+    font-family: Open Sans !important;
+}
+.form-group {
+    margin-bottom: .5vh;
+}
+.form-control {
+    height: 4vh;
+    font-size: 1.5vh;
+    padding: 1%;
+}
+.modal-title,
+.modal h4 {text-align: center;}
+
+.player1-form { position: relative; left: 10%;}
+.player2-form { position: relative; left: 15%;}
+.modal select { width: 10vw; left: 50%; transform: translateX(-50%);}
+
+.modal-content {
+    background: url("images/modalbackground.png") no-repeat;
+    background-size: cover;
+    padding: 5%;
+    width: 80vh;
+    height: 80vh;
+    border-radius: 50%;
+    color: purple;
+    text-shadow: 1px 1px 5px orange;
+}
+#setting_submit, #restore, #reset, #pause-background-sound-button, .pause-background-sound-button {
+    background-image: url("images/modalbackground.png");
+    background-size: cover;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    color: #ffff66;
+    font-size: 1.9vw;
+    text-shadow: 1px 1px 5px black;
+    position: absolute;
+    top: 55vh;
+    left: 50%;
+    transform: translateX(-50%);
+    border: .3vh solid white;
+}
+#setting_submit {
+    height: 12vh;
+    width: 12vh;
+    top: 55vh;
+    #border: 3px solid white;
+}
+#pause-background-sound-button {
+    top: 58vh;
+    #border: 3px solid white;
+    transform: translateX(100%);
+    background-image: url("images/soundbutton.png");
+}
+.pause-background-sound-button{
+    #border: .2vh solid white;
+    transform: translateX(100%);
+    font-size: 1em;
+    position: absolute;
+    top:3vh;
+    left: 85vw;
+    height: 6vh;
+    width: 6vh;
+    background-image: url("images/soundbutton.png");
+}
+#restore {
+    top: 58vh;
+    #border: .2vh solid white;
+    transform: translateX(-200%);
+}
+
+#reset {
+    height: 6vh;
+    width: 6vh;
+    font-size: 1em;
+    position: absolute;
+    top:3vh;
+    left: 95vw;
+    #border: 3px solid white;
+
+}
+#restore, #setting_submit, #reset {
+    animation: glowing 1000ms infinite;
+}
+
+#player_one,
+#player_two,
+#vs {
+    align-content: center;
+    text-align: center;
+    padding: 5%;
+    font-size: 1vw;
+    transition-duration: 3s;
+    height: 100%;
+    color: #fff;
+    transform: scale(1.2);
+}
+#vs {
+    /*color: #404040;*/
+    font-size: 2em;
+}
+#player_one {
+    /*color: #003300;*/
+}
+#player_one {
+    /*color: #202020;*/
+}
+
+.cell{
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    margin: 0;
+    background-color: rgba(102,102,0,.2);
+    box-shadow: 5px 5px 10px black;
+}
+.cell:hover {
+    background-color: rgba(102,102,0,.4);
+}
+.ex {
+    background-image: url("images/x/auto_shop_x.png");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+.ow {
+    background-image: url("images/o/auto_shop_o.png");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+header {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 7%;
+    #background-color: red;
+    width: 30%;
+}
+input {
+    text-align: center;
+}
+    .form-inline .form-control {
+        display: inline-block;
+        width: 20vh;
+    }
+
+button:focus {
+    outline: none;
+}
+
+/************  LANDSCAPE   *****************/
+    /*** MODAL POSITIONING - LANDSCAPE  ***/
+         @media screen and (max-width: 750px){
+            .modal {
+                left: 30vw;
+                top: 5vw;
+            }
+             .modal button {
+                 margin-top: 3vh;
+             }  /** buttons move down **/
+             .modal-dialog {
+                 box-shadow: none;
+             }
+             .container-fluid {
+                 padding-left: 0;
+             }/** remove white border on left **/
+         } /** Modal positioning - all phones  **/
+        @media screen and (max-width: 640px) {
+            .modal button {
+                margin-top: 7vh;
+            }/** buttons move down **/
+            .modal-dialog {box-shadow: none;}
+            .container-fluid {
+                padding-left: 0;
+            }/** remove white border on left **/
+        } /** Modal positioning - iphone5 nexus 5 galax 3  **/
+        @media screen and (min-width: 1024px){
+            .modal {
+                left: 2vw;
+            }
+            .modal-dialog {box-shadow: none;}
+            .container-fluid {
+                padding-left: 0;
+            }/** remove white border on left **/
+        }   /** Modal positioning - ipad  **/
+    /*** END MODAL POSITIONING - LANDSCAPE  ***/
+
+/*in portrate I have to change the size of game board based on % or vw + change btn group size*/
+@media screen and (min-width: 320px) and (max-width: 412px) {
+    .modal-dialog {
+        /*width: 80vw;*/
+        height: 80vw;
+        border-radius: 50%;
+        box-shadow: none;
+        top: 20vw;
+        margin: 0;
+    }
+    .modal-body {
+        padding: 2%;
+    }
+    .modal-content {
+        width: 100vw;
+        height: 100vw;
+    }
+    .modal select {
+        width: 20vh;
+    }
+    .form-control {
+        height: 5vw;
+        font-size:2.5vw;
+        padding: .5%;
+    }
+    #reset, .pause-background-sound-button {
+        left: 75vw;
+        height: 6vh;
+        width: 6vh;
+    }
+    .game_board {
+        position: absolute;
+        bottom:0%;
+        left:50%;
+        top: 50%;
+        width: 80vw;
+        height: 80vw;
+        margin: 0 auto;
+        font-size: 0;
+        transform: translate(-50%, -50%);
+        /*box-shadow: 5px 5px 10px rgba(102,102,0,.9);*/
+    }
+    .modal {
+        left: 0;
+    } /**Adjust modal position to center on screen **/
+    .container-fluid {
+        padding-left: 0;
+    }/** remove white border on left **/
+
+}
+
+    @media screen and (width: 414px) and (height: 736px) {
+        .wrapper {
+            width: 110vw;
+            height: 110vh;
+        }
+        .game_board {
+            width: 80vw;
+        }
+        #reset {
+            left: 86vw;
+        }
+        .modal {
+            left: -22vw;
+            top: 20vw;
+        }
+    }/**    iPhone6+ positioning fixes     **/
+
+    @media screen and (width: 768px) and (height: 1024px) {
+        .wrapper {
+            width: 110vw;
+            height: 110vh;
+        }
+        .game_board {
+            width: 80vw;
+        }
+        #reset {
+            left: 86vw;
+        }
+        .modal {
+            left: -22vw;
+            top: 20vw;
+        }
+        .container-fluid {
+            padding-left: 0;
+        }/** remove white border on left **/
+        .modal {
+            left: -14vw;
+            top: 10vh;
+        }
+        .pause-background-sound-button {
+            left: 83vw;
+        }
+
+    }/**    ipad portrait positioning fixes     **/
+
+    @media screen and (height: 768px) and (width: 1024px) {
+        .modal {
+            top: 10vh;
+        }/**move modal down a bit **/
+        .pause-background-sound-button {
+            left: 80vw;
+        }
+    }/** ipad landscape**/
