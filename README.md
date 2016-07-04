@@ -9,7 +9,7 @@
 - Choose your battle ground - In the shop, in the desert, in the classroom, in the world of warcraft, on the beach, in the stars...You can do it (play tic tac toe)  anywhere.
 
 ----------------------------------------------------------------------------
-### TECH STUFF:
+### Technology Used:
 >- HTML5, CSS3, JavaScript/jQuery
 ----------------------------------------------------------------------------
 ### FUTURE IMPROVEMENTS:
