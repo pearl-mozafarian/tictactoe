@@ -131,6 +131,7 @@ function modalSubmition() {
     ///////////////////getting num of cells to win, check to see
     num_of_rows = $('.number_of_rows').val();
     num_of_rows = parseInt(num_of_rows);
+    console.log("number of matches to win: ",num_of_rows);
     game_won= false;
     //////getting players names
     player1_name_value = $("#player1").val();
@@ -140,8 +141,8 @@ function modalSubmition() {
     $("#vs").text("vs");
     animate_name();
     ///////getting num of rows
-    var row_num = $('.number_of_rows').val();
-    if (row_num != "") {
+    num_of_cells_to_win = $('.number_of_matches').val();
+    if (num_of_cells_to_win != "") {
         $(".game_board").empty();                         //empty game board, else, new board created will have old game
         grid_array = [];                                  //clear grid
         create_grid_array();                              //recreate grid
@@ -181,11 +182,11 @@ function enableSubmitButton() {
 }
 
 function cellsVsMatches(){
-            // console.log("number of matches changed to:"+num_of_cells_to_win);
+             console.log("number of matches changed to:"+num_of_cells_to_win);
             // console.log("number of rows changed to:"+num_of_rows);
     var number_of_cells_to_win = $('.number_of_matches').val();
         number_of_cells_to_win = parseInt(number_of_cells_to_win);
-            // console.log('num_of_cells_to_win = ' + num_of_cells_to_win);
+             console.log('num_of_cells_to_win = ' + number_of_cells_to_win);
     var number_of_rows = $('.number_of_rows').val();
         number_of_rows = parseInt(number_of_rows);
             // console.log('num_of_rows = ' + number_of_rows);
